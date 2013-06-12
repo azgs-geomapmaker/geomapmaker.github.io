@@ -1,0 +1,54 @@
+!!!html
+html(lang="en")
+    head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", media="screen", href="css/ncgmp.css")
+    body(data-spy="scroll", data-target=".ncgmp-docs-sidebar")
+        // Navbar
+        .navbar.navbar-inverse.navbar-fixed-top
+            #top-nav.navbar-inner
+                .container
+                // Collapsed menu
+                button(type="button", data-toggle="collapse", data-target=".nav-collapse").btn.btn-navbar
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                .nav-collapse.collapse
+                    ul.nav
+                        li: a(href="./home.html") Home
+                        li: a(href="./overview.html") Overview
+                        li: a(href="./required.html") Core Content
+                        li: a(href="./as-needed.html") Extensibility
+                        li: a(href="./symbolization.html") Symbolization
+                        li: a(href="./shapefiles.html") Shapefiles
+                        li: a(href="./lithology.html") Lithology
+        block content
+
+        // Footer
+        footer.footer
+            .container
+                p Database designed by the USGS National Cooperative Geologic Mapping Program.
+                p Site designed by&nbsp;
+                    a(href="mailto:ryan.clark.j@gmail.com") Ryan Clark
+                    span , drawing heavily on content from&nbsp;
+                    a(href="http://pubs.usgs.gov/of/2010/1335") USGS Open-File Report 2010-1335
+                    span .
+                p Not sure if I could rely any more heavily on&nbsp;
+                    a(href="http://twitter.github.io/bootstrap/index.html") Bootstrap
+                    span !!&nbsp;
+                    a(href="http://glyphicons.com") Glyphicons Free
+                    span &nbsp;licensed under&nbsp;
+                    a(href="http://creativecommons.org/licenses/by/3.0/") CC BY 3.0
+                    span .
+
+        // Scripts
+        script(src="components/jquery/jquery.min.js")
+        script(src="components/bootstrap/js/bootstrap-scrollspy.js")
+        script(src="components/bootstrap/js/bootstrap-collapse.js")
+        script(src="components/bootstrap/js/bootstrap-affix.js")
+        script
+            $('.ncgmp-docs-sidenav').affix({
+                offset: {
+                  top: 190, bottom: 10
+                }
+              });

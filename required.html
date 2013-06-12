@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/ncgmp.css">
+  </head>
+  <body data-spy="scroll" data-target=".ncgmp-docs-sidebar">
+    <!-- Navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div id="top-nav" class="navbar-inner">
+        <div class="container"></div>
+        <!-- Collapsed menu-->
+        <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li><a href="./required.html">Core Content</a></li>
+            <li><a href="./as-needed.html">Extensibility</a></li>
+            <li><a href="./symbolization.html">Symbolization</a></li>
+            <li><a href="./shapefiles.html">Shapefiles</a></li>
+            <li><a href="./lithology.html">Lithology</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Sub-Header-->
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1><span>Core Content</span></h1>
+        <p class="lead"><span>The heart of a geologic map</span></p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar-->
+        <div class="span3">
+          <div class="ncgmp-docs-sidebar">
+            <ul class="nav nav-tabs nav-stacked ncgmp-docs-sidenav">
+              <li><a href="#mapunitpolys"><i class="icon-chevron-right"></i><span>MapUnitPolys</span></a></li>
+              <li><a href="#contactsandfaults"><i class="icon-chevron-right"></i><span>ContactsAndFaults</span></a></li>
+              <li><a href="#datasourcepolys"><i class="icon-chevron-right"></i><span>DataSourcePolys</span></a></li>
+              <li><a href="#descriptionofmapunits"><i class="icon-chevron-right"></i><span>DescriptionOfMapUnits</span></a></li>
+              <li><a href="#datasources"><i class="icon-chevron-right"></i><span>DataSources</span></a></li>
+              <li><a href="#glossary"><i class="icon-chevron-right"></i><span>Glossary</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Main-->
+        <div class="span9">
+          <section id="mapunitpolys">
+            <div class="page-header">
+              <h1>1. MapUnitPolys</h1>
+            </div>
+            <p class="lead">Polygon features that represent areas where a contiguous mapped unit is found. These are the colors on your map.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MapUnitPolys_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each polygon and ideally are universally unique.</td>
+                </tr>
+                <tr class="info">
+                  <td>MapUnit</td>
+                  <td><em>String</em></td>
+                  <td>Short key for the map unit. Example values: Qal, Tg, water, etc. Any value used here must be defined in the&nbsp;<a href="#descriptionofmapunits">DescriptionOfMapUnits</a><span>&nbsp;table.</span></td>
+                </tr>
+                <tr class="info">
+                  <td>IdentityConfidence</td>
+                  <td><em>String</em></td>
+                  <td>How are you that this polygon is what you say it is? Value is usually&nbsp;<code>certain</code><span>,&nbsp;</span><code>questionable</code><span>, or&nbsp;</span><code>unspecified</code><span>. Suggested default value of&nbsp;</span><code>certain</code><span>. Each term used here must be defined in the&nbsp;</span><a href="#glossary">Glossary</a><span>&nbsp;table.</span></td>
+                </tr>
+                <tr class="warning">
+                  <td>Label</td>
+                  <td><em>String</em></td>
+                  <td>The label that should appear on a map for this polygon. Allows for subscripts and special characters.</td>
+                </tr>
+                <tr class="warning">
+                  <td>Symbol</td>
+                  <td><em>String</em></td>
+                  <td>A reference to an area fill symbol. This may be an identifier in an ESRI style file, or it may identify a symbol in some other fashion. See the&nbsp;<a href="./symbolization.html">Symbolization</a><span>&nbsp;page for more information.</span></td>
+                </tr>
+                <tr class="warning">
+                  <td>Notes</td>
+                  <td><em>String</em></td>
+                  <td>Free text for additional information specific to this polygon.</td>
+                </tr>
+                <tr class="info">
+                  <td>DataSourceID</td>
+                  <td><em>String</em></td>
+                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for this feature.</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="contactsandfaults">
+            <div class="page-header">
+              <h1>2. ContactsAndFaults</h1>
+            </div>
+            <p class="lead">Line features that represent the type of boundary between two mapped units belong here.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+            </table>
+          </section>
+          <section id="datasourcepolys">
+            <div class="page-header">
+              <h1>3. DataSourcePolys</h1>
+            </div>
+            <p class="lead">Polygon features that delineate the source of data for all parts of the map.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+            </table>
+          </section>
+          <section id="descriptionofmapunits">
+            <div class="page-header">
+              <h1>4. DescriptionOfMapUnits</h1>
+            </div>
+            <p class="lead">This table captures the content from the map unit legend on a traditional geologic map. This is where you describe your mapped units.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+            </table>
+          </section>
+          <section id="datasources">
+            <div class="page-header">
+              <h1>5. DataSources</h1>
+            </div>
+            <p class="lead">This table lists sources of content that were used to generate the geologic map. Think of this as the list of citations, only less formal.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+            </table>
+          </section>
+          <section id="glossary">
+            <div class="page-header">
+              <h1>6. Glossary</h1>
+            </div>
+            <p class="lead">This table defines terminology used throughout the data set. Help other people understand what you meant.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="container">
+        <p>Database designed by the USGS National Cooperative Geologic Mapping Program.</p>
+        <p>Site designed by&nbsp;<a href="mailto:ryan.clark.j@gmail.com">Ryan Clark</a><span>, drawing heavily on content from&nbsp;</span><a href="http://pubs.usgs.gov/of/2010/1335">USGS Open-File Report 2010-1335</a><span></span></p>
+        <p>Not sure if I could rely any more heavily on&nbsp;<a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a><span>!!&nbsp;</span><a href="http://glyphicons.com">Glyphicons Free</a><span>&nbsp;licensed under&nbsp;</span><a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><span></span></p>
+      </div>
+    </footer>
+    <!-- Scripts-->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="components/bootstrap/js/bootstrap-affix.js"></script>
+    <script>
+      $('.ncgmp-docs-sidenav').affix({
+          offset: {
+            top: 190, bottom: 10
+          }
+      });
+    </script>
+  </body>
+</html>
