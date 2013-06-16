@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/ncgmp.css">
+  </head>
+  <body data-spy="scroll" data-target=".ncgmp-docs-sidebar">
+    <!-- Navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div id="top-nav" class="navbar-inner">
+        <div class="container"></div>
+        <!-- Collapsed menu-->
+        <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li><a href="./core-content.html">Core Content</a></li>
+            <li><a href="./extensibility.html">Extensibility</a></li>
+            <li><a href="./symbolization.html">Symbolization</a></li>
+            <li><a href="./formats.html">Formats</a></li>
+            <li><a href="./sticking-points.html">Sticking Points</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Sub-Header-->
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1><span>Core Content</span></h1>
+        <p class="lead"><span>The heart of a geologic map</span></p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar-->
+        <div class="span3">
+          <div class="ncgmp-docs-sidebar">
+            <ul class="nav nav-tabs nav-stacked ncgmp-docs-sidenav">
+              <li><a href="#mapunitpolys"><i class="icon-chevron-right"></i><span>MapUnitPolys</span></a></li>
+              <li><a href="#contactsandfaults"><i class="icon-chevron-right"></i><span>ContactsAndFaults</span></a></li>
+              <li><a href="#datasourcepolys"><i class="icon-chevron-right"></i><span>DataSourcePolys</span></a></li>
+              <li><a href="#descriptionofmapunits"><i class="icon-chevron-right"></i><span>DescriptionOfMapUnits</span></a></li>
+              <li><a href="#datasources"><i class="icon-chevron-right"></i><span>DataSources</span></a></li>
+              <li><a href="#glossary"><i class="icon-chevron-right"></i><span>Glossary</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Main-->
+        <div class="span9">
+          <section id="mapunitpolys">
+            <div class="page-header">
+              <h1>1. MapUnitPolys</h1>
+            </div>
+            <p class="lead">Polygon features that represent areas where a contiguous mapped unit is found. These are the colors on your map.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>MapUnitPolys_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each polygon and ideally are universally unique.</td>
+                </tr>
+                <tr class="info">
+                  <td>MapUnit</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Short key for the map unit.
+                     Example values: Qal, Tg, water, etc. Any value used here must be defined in the
+                     <a href="#descriptionofmapunits">DescriptionOfMapUnits</a> table.
+                  </td>
+                </tr>
+                <tr class="info">
+                  <td>IdentityConfidence</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Qualitative indication of the uncertainty in this polygon's classification.
+                     Value is usually <code>certain</code>, <code>questionable</code>, or <code>unspecified</code>.
+                     Suggested default value of <code>certain</code>.
+                     Each term used here must be defined in the <a href="#glossary">Glossary</a> table.
+                    <div><em><a href="sticking-points.html#confidence" class="muted">
+                          How confident are you that these rocks are identified correctly?
+                           Read more about uncertainties...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Label</td>
+                  <td><em>String</em></td>
+                  <td>The label that should appear on a map for this polygon. Allows for subscripts and special characters.</td>
+                </tr>
+                <tr>
+                  <td>Symbol</td>
+                  <td><em>String</em></td>
+                  <td>A reference to an area fill symbol. This may be an identifier in an ESRI style file, or it may identify a symbol in some other fashion. See the&nbsp;<a href="./symbolization.html">Symbolization</a><span>&nbsp;page for more information.</span></td>
+                </tr>
+                <tr>
+                  <td>Notes</td>
+                  <td><em>String</em></td>
+                  <td>Free text for additional information specific to this polygon.</td>
+                </tr>
+                <tr class="info">
+                  <td>DataSourceID</td>
+                  <td><em>String</em></td>
+                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for this polygon.</span>
+                    <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="contactsandfaults">
+            <div class="page-header">
+              <h1>2. ContactsAndFaults</h1>
+            </div>
+            <p class="lead">Line features that represent the type of boundary between two mapped units belong here.</p>
+            <blockquote>IsConcealed should be Boolean. LocationConfidenceMeters should allow null instead of faking it with -9.</blockquote>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>ContactsAndFaults_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each line and ideally are universally unique.</td>
+                </tr>
+                <tr class="info">
+                  <td>Type</td>
+                  <td><em>String</em></td>
+                  <td>Specifies the kind of feature represented by the line. Values could be, for example,&nbsp;<code>contact</code><span>,&nbsp;</span><code>fault</code><span>,&nbsp;</span><code>waterline</code><span>,&nbsp;</span><code>glacier boundary</code><span>,&nbsp;</span><code>map boundary</code><span>. Values must be defined in the&nbsp;</span><a href="#glossary">Glossary</a><span>&nbsp;table.</span></td>
+                </tr>
+                <tr class="warning">
+                  <td>IsConcealed</td>
+                  <td><em>String</em></td>
+                  <td>Indicates whether or not the line is covered by an overlying map unit. Values =&nbsp;<code>N</code><span>,&nbsp;</span><code>Y</code><span></span></td>
+                </tr>
+                <tr class="warning">
+                  <td>LocationConfidenceMeters</td>
+                  <td><em>Float</em></td>
+                  <td>Quantitative certainty of the line's position. Specify the uncertainty in the precision of this line's location in&nbsp;<strong>meters</strong><span>. Recommend value of&nbsp;</span><code>-9</code><span>&nbsp;if value is not available.&nbsp;</span>
+                    <div><em><a href="sticking-points.html#confidence" class="muted">How precisely is the line located? Read more about uncertainties...</a></em></div>
+                  </td>
+                </tr>
+                <tr class="info">
+                  <td>ExistenceConfidence</td>
+                  <td><em>String</em></td>
+                  <td>Qualitative indication of the uncertainty of this line's existence. Suggested values include&nbsp;<code>certain</code>,&nbsp;<code>questionable</code>, or&nbsp;<code>unspecified</code>. Suggested default value of&nbsp;<code>certain</code>. Values must be defined in the&nbsp;<a href="#glossary">Glossary</a>&nbsp;table.
+                    <div><em><a href="sticking-points.html#confidence" class="muted">How confident are you that this contact or fault really exists? Read more about uncertainties...</a></em></div>
+                  </td>
+                </tr>
+                <tr class="info">
+                  <td>IdentityConfidence</td>
+                  <td><em>String</em></td>
+                  <td>Qualitative indication of the uncertainty of this line's classification. Suggested values include&nbsp;<code>certain</code><span>,&nbsp;</span><code>questionable</code><span>, or&nbsp;</span><code>unspecified</code><span>. Suggested default value of&nbsp;</span><code>certain</code><span>. Values must be defined in the&nbsp;</span><a href="#glossary">Glossary</a><span>&nbsp;table.</span>
+                    <div><em><a href="sticking-points.html#confidence" class="muted">How confident are you identified this feature correctly? Read more about uncertainties...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Symbol</td>
+                  <td><em>String</em></td>
+                  <td>A reference to a line symbol. This may be an identifier in an ESRI style file, or it may identify a symbol in some other fashion. See the&nbsp;<a href="./symbolization.html">Symbolization</a><span>&nbsp;page for more information.</span></td>
+                </tr>
+                <tr>
+                  <td>Label</td>
+                  <td><em>String</em></td>
+                  <td>A human-readable name for this line. Can be used to store fault name, or whatever else is appropriate.</td>
+                </tr>
+                <tr>
+                  <td>Notes</td>
+                  <td><em>String</em></td>
+                  <td>Free text for additional information specific to this line.</td>
+                </tr>
+                <tr class="info">
+                  <td>DataSourceID</td>
+                  <td><em>String</em></td>
+                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for this line.</span>
+                    <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="datasourcepolys">
+            <div class="page-header">
+              <h1>3. DataSourcePolys</h1>
+            </div>
+            <p class="lead">Polygon features that indicate the source of data for all parts of the map.</p>
+            <blockquote>Redundant, but helpful. Should it be required?</blockquote>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>DataSourcePolys_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each polygon and ideally are universally unique.</td>
+                </tr>
+                <tr class="info">
+                  <td>DataSourceID</td>
+                  <td><em>String</em></td>
+                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for the data in this area.</span>
+                    <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Notes</td>
+                  <td><em>String</em></td>
+                  <td>Free text for additional information specific to this polygon.</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="descriptionofmapunits">
+            <div class="page-header">
+              <h1>4. DescriptionOfMapUnits</h1>
+            </div>
+            <p class="lead">This table captures the content from the map unit legend on a traditional geologic map. This is where you describe your mapped units.</p>
+            <blockquote>Should labels encourage implementation-specific markup? Fullname should not tell you what a map-app will do. All label, name and fullname are all null-able? How do I "notify GEOLEX" if my unit isn't in there? Really need to pay some attention to what's required here.</blockquote>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>DescriptionOfMapUnits_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each record and ideally are universally unique.</td>
+                </tr>
+                <tr class="info">
+                  <td>MapUnit</td>
+                  <td><em>String</em></td>
+                  <td>Short string that identifies a mapped unit. Examples include&nbsp;<code>Qal</code>,&nbsp;<code>Tec</code>, or&nbsp;<code>Qvt</code>. Each unit abbreviation must be unique in the database. Values in this field provide the link between this table and the MapUnitPolys table. Using special characters is not recommended in this field. Null values are acceptable, and are commonly associated with headings.
+                    <div><em><a href="sticking-points.html#unitnames" class="muted">Read more about identifying mapped units...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Label</td>
+                  <td><em>String</em></td>
+                  <td>A text string used label polygons when the map is displayed. May include markup to indicate special fonts, formatting, subscripts, etc. For example, Triassic Newark Formation might be labeled as&nbsp;<code>&lt;font=FGDCGeoAge&gt;#&lt;/font&gt;</code>. Null values are okay for units that do not appear on map or are not labeled, like headings, water, glacier, and perhaps overlay units.
+                    <div><em><a href="sticking-points.html#unitnames" class="muted">Read more about identifying mapped units...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td><em>String</em></td>
+                  <td>The name of the mapped unit. Two examples are&nbsp;<code>Chinle Formation</code>&nbsp;or&nbsp;<code>Shnabkaib Member</code>. These names should be verified in the U.S. Geologic Names Lexicon (GEOLEX). If your usage does not agree with GEOLEX's, notification should be submitted to the Lexicon website.
+                    <div><em><a href="sticking-points.html#unitnames" class="muted">Read more about identifying mapped units...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>FullName</td>
+                  <td><em>String</em></td>
+                  <td>Full name of unit, including identification of containing higher rank units. For example,&nbsp;<code>Shnabkaib Member of the Moenkopi Formation</code>. See lexicon-related note in 'Name', above. Null values are okay for headings or other geologic units that are not shown on map.</td>
+                </tr>
+                <tr>
+                  <td>Age</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Stratigraphic range, or for intrusive and extrusive rocks, age.
+                    This is free-form text, and is often shown within parentheses in traditional legend.
+                     To be more specific, or to record multiple stratigraphic ranges or ages for a unit, utilize
+                     the optional tables: <a href="extensibility.html#extendedattributes">ExtendedAttributes</a>
+                     and <a href="extensibility.html#geologicevent">GeologicEvent</a>. Null values may be used for
+                     map units that inherit Age from a parent unit, or for headings or overlay units.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Description</td>
+                  <td><em>String</em></td>
+                  <td>Free-form text description of a map unit. These descriptions are commonly structured according to long-standaing tradition and are terse. Markup for formattingis permitted. Null values are okay for headings or obvious mapped units (e.g.&nbsp;<code>water</code>).</td>
+                </tr>
+                <tr class="warning">
+                  <td>HierarchyKey</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Description of the parent-child relationships between mapped units.
+                     This field encodes units as children of a particular heading, or members within a formation.
+                     Should take the form nn-nn-nn, nnn-nnn, or similar.
+                     These are numbers, left-padded with zeros, dash-delimited.
+                     Each fragment must be the same length to allow text-based sorting of the DMU entries.
+                  </td>
+                </tr>
+                <tr class="info">
+                  <td>ParagraphStyle</td>
+                  <td><em>String</em></td>
+                  <td>
+                    A term to describe the formatting of this record on a printed map.
+                     Example values include <code>Heading1st</code>, <code>Heading2nd</code>, <code>standard</code>
+                     or similar. The formatting associated with these terms should be explained in the
+                     <a href="#glossary">Glossary</a> table.
+                  </td>
+                </tr>
+                <tr>
+                  <td>AreaFillRGB</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Red, Green, Blue tuples that specify the suggested color for symbolizing this mapped unit.
+                     Consistent syntax is important in order to read this field and display the intended color.
+                     Each color value is an integer between 0 and 255 and are separated by commas:
+                     <code>0,234,245</code> or <code>12,46,189</code>.
+                     Null values are okay for headings, etc.
+                  </td>
+                </tr>
+                <tr>
+                  <td>AreaFillPatternDescription</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Text description of any pattern suggested for symbolizing this mapped unit.
+                     For example, <code>randomly oriented small red dashes</code>.
+                     Provided as a convenience for users who must recreate the suggested symbolization.
+                     Null values are okay for headings and unpatterned map units.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Symbol</td>
+                  <td><em>String</em></td>
+                  <td>
+                    A reference to a polygon symbol.
+                     This may be an identifier in an ESRI style file, or it may identify a symbol in some other
+                     fashion. See the <a href="./symbolization.html">Symbolization</a> page for more information.
+                  </td>
+                </tr>
+                <tr class="info">
+                  <td>DescriptionSourceID</td>
+                  <td><em>String</em></td>
+                  <td>
+                    The identifier for a record in <a href="#datasources">DataSources</a> table that indicates the
+                     source for the mapped unit description.
+                    <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GeneralLithology</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Term to categorize the map unit based on lithologic and genetic character, from the
+                     <a href="#">NGMDB standard term list</a>. Null values OK for headings and unmapped units.
+                    <div><em><a href="sticking-points.html#generallithology" class="muted">Read more about standard lithologic vocabulary...</a></em></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>GeneralLithologyConfidence</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Describes appropriateness of the specified GeneralLithology term for describing this map unit.
+                     Null values OK for headings and unmapped units.
+                    <div><em><a href="sticking-points.html#generallithology" class="muted">Read more about standard lithologic vocabulary...</a></em></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="datasources">
+            <div class="page-header">
+              <h1>5. DataSources</h1>
+            </div>
+            <p class="lead">This table lists sources of content that were used to generate the geologic map. Think of this as the list of citations, only less formal.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>DataSources_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each record and ideally are universally unique.</td>
+                </tr>
+                <tr class="warning">
+                  <td>Source</td>
+                  <td><em>String</em></td>
+                  <td>
+                    A short, human-readable description that identifies the data source.
+                     For example, <code>RJC new mapping, 2013</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Notes</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Notes on this source, providing a more complete description of processing or data acquisition
+                     procedure. May include a full citation and/or URL.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="glossary">
+            <div class="page-header">
+              <h1>6. Glossary</h1>
+            </div>
+            <p class="lead">This table defines terminology used throughout the data set. Help other people understand what you meant.</p>
+            <blockquote>More discussion as needed</blockquote>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Field Name</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="warning">
+                  <td>Glossary_ID</td>
+                  <td><em>String</em></td>
+                  <td>Primary key. Values must be unique for each record and ideally are universally unique.</td>
+                </tr>
+                <tr class="warning">
+                  <td>Term</td>
+                  <td><em>String</em></td>
+                  <td>
+                    Plain-language word for a concept. Values must be unique within database as a whole.
+                     These are terms used elsewhere in the dataset which require more explicit definition.
+                     For example, <code>granite</code>, <code>foliation</code>, <code>certain</code>, <code>Heading1st</code>.
+                  </td>
+                </tr>
+                <tr class="warning">
+                  <td>Definition</td>
+                  <td><em>String</em></td>
+                  <td>Free-form description of the term in as plain language as possible.</td>
+                </tr>
+                <tr class="info">
+                  <td>DefinitionSourceID</td>
+                  <td><em>String</em></td>
+                  <td>
+                    The identifier for a record in <a href="#datasources">DataSources</a> table that indicates the
+                     source for the definition.
+                    <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="container">
+        <p>Database designed by the USGS National Cooperative Geologic Mapping Program.</p>
+        <p>Site designed by&nbsp;<a href="mailto:ryan.clark.j@gmail.com">Ryan Clark</a><span>, drawing heavily on content from&nbsp;</span><a href="http://pubs.usgs.gov/of/2010/1335">USGS Open-File Report 2010-1335</a><span></span></p>
+        <p>Not sure if I could rely any more heavily on&nbsp;<a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a><span>!!&nbsp;</span><a href="http://glyphicons.com">Glyphicons Free</a><span>&nbsp;licensed under&nbsp;</span><a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><span></span></p>
+      </div>
+    </footer>
+    <!-- Scripts-->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="components/bootstrap/js/bootstrap-affix.js"></script>
+    <script>
+      $('.ncgmp-docs-sidenav').affix({
+          offset: {
+            top: 190, bottom: 10
+          }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+extends docs.jade
+
+block title
+    span Sticking Points
+
+block lead
+    span Discussion of common problems for NCGMP09 users
+
+block sidenavs
+    li: a(href="#datasources")
+        i.icon-chevron-right
+        span Data Sources
+    li: a(href="#confidence")
+        i.icon-chevron-right
+        span Confidence
+    li: a(href="#unitnames")
+        i.icon-chevron-right
+        span Unit Names
+    li: a(href="#generallithology")
+        i.icon-chevron-right
+        span General Lithology
+
+block docs
+    section#datasources
+        .page-header
+            h1 1. Data Sources
+        p.lead The goal is to capture information about who is responsible for every feature on the map.
+    section#confidence
+        .page-header
+            h1 2. Confidence
+        p.lead It is important that we find a way to communicate the uncertainties in our measurements and analysis.
+    section#unitnames
+        .page-header
+            h1 3. Unit Names
+        p.lead Guidelines for identifying geologic units in the DescriptionOfMapUnits table.
+    section#generallithology
+        .page-header
+            h1 4. General Lithology
+        p.lead Believe it or not, people will better understand our data if we can agree on some common terminology.

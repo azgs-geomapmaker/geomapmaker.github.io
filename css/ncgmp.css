@@ -7973,6 +7973,10 @@ body {
   margin-right: -6px;
   opacity: .25;
 }
+.ncgmp-docs-sidenav .active i {
+  background-image: url("../img/glyphicons-halflings-white.png");
+  opacity: 1;
+}
 .ncgmp-docs-sidenav .active a {
   position: relative;
   z-index: 2;
