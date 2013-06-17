@@ -54,6 +54,37 @@ body {
   color: #fff;
   .gradient();
 }
+.featurette {
+  .featurette-image {
+    padding: 0;
+    margin: 0;
+    width: 1200px;
+    height: 400px;
+
+    &.geomap { background-image: url("../img/geomap1200.png"); }
+  }
+
+  .featurette-text {
+    position: absolute;
+    margin-top: 5%;
+    text-shadow: 1px 1px 0px white;
+
+    .btn-group {
+      margin-left: 20px;
+    }
+
+    &.featurette-text-right {
+      left: 50%;
+      margin-right: 5%;
+    }
+
+    &.featurette-text-left {
+      margin-right: 50%;
+      margin-left: 5%;
+    }
+  }
+}
+
 
 .footer {
   text-align: center;

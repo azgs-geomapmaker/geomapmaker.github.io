@@ -18,7 +18,7 @@
             <li><a href="./core-content.html">Core Content</a></li>
             <li><a href="./extensibility.html">Extensibility</a></li>
             <li><a href="./symbolization.html">Symbolization</a></li>
-            <li><a href="./formats.html">Formats</a></li>
+            <li><a href="./tools.html">Tools</a></li>
             <li><a href="./sticking-points.html">Sticking Points</a></li>
           </ul>
         </div>
@@ -28,7 +28,7 @@
     <header class="jumbotron subhead">
       <div class="container">
         <h1><span>Core Content</span></h1>
-        <p class="lead"><span>The heart of a geologic map</span></p>
+        <p class="lead"><span>The heart of a geologic map, required in an NCGMP09 database</span></p>
       </div>
     </header>
     <div class="container">
@@ -98,7 +98,11 @@
                 <tr>
                   <td>Symbol</td>
                   <td><em>String</em></td>
-                  <td>A reference to an area fill symbol. This may be an identifier in an ESRI style file, or it may identify a symbol in some other fashion. See the&nbsp;<a href="./symbolization.html">Symbolization</a><span>&nbsp;page for more information.</span></td>
+                  <td>
+                    A reference to an area fill symbol.
+                     This may be an identifier in an ESRI style file, or it may identify a symbol in some other
+                     fashion. See the <a href="./symbolization.html">Symbolization</a> page for more information.
+                  </td>
                 </tr>
                 <tr>
                   <td>Notes</td>
@@ -108,7 +112,9 @@
                 <tr class="info">
                   <td>DataSourceID</td>
                   <td><em>String</em></td>
-                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for this polygon.</span>
+                  <td>
+                    The identifier for a record in the <a href="#datasources">DataSources</a> table that indicates
+                     the source for this polygon.
                     <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
                   </td>
                 </tr>
@@ -120,7 +126,10 @@
               <h1>2. ContactsAndFaults</h1>
             </div>
             <p class="lead">Line features that represent the type of boundary between two mapped units belong here.</p>
-            <blockquote>IsConcealed should be Boolean. LocationConfidenceMeters should allow null instead of faking it with -9.</blockquote>
+            <blockquote>
+              IsConcealed should be Boolean. LocationConfidenceMeters should allow null instead of faking it with
+               -9.
+            </blockquote>
             <table class="table">
               <thead>
                 <tr>
@@ -138,38 +147,67 @@
                 <tr class="info">
                   <td>Type</td>
                   <td><em>String</em></td>
-                  <td>Specifies the kind of feature represented by the line. Values could be, for example,&nbsp;<code>contact</code><span>,&nbsp;</span><code>fault</code><span>,&nbsp;</span><code>waterline</code><span>,&nbsp;</span><code>glacier boundary</code><span>,&nbsp;</span><code>map boundary</code><span>. Values must be defined in the&nbsp;</span><a href="#glossary">Glossary</a><span>&nbsp;table.</span></td>
+                  <td>
+                    Specifies the kind of feature represented by the line. Values could be, for example,
+                     <code>contact</code>, <code>fault</code>, <code>waterline</code>,
+                     <code>glacier boundary</code>, <code>map boundary</code>.
+                     Values must be defined in the <a href="#glossary">Glossary</a> table.
+                  </td>
                 </tr>
                 <tr class="warning">
                   <td>IsConcealed</td>
                   <td><em>String</em></td>
-                  <td>Indicates whether or not the line is covered by an overlying map unit. Values =&nbsp;<code>N</code><span>,&nbsp;</span><code>Y</code><span></span></td>
+                  <td>
+                    Indicates whether or not the line is covered by an overlying map unit. Values =
+                     <code>N</code>, <code>Y</code>.
+                  </td>
                 </tr>
                 <tr class="warning">
                   <td>LocationConfidenceMeters</td>
                   <td><em>Float</em></td>
-                  <td>Quantitative certainty of the line's position. Specify the uncertainty in the precision of this line's location in&nbsp;<strong>meters</strong><span>. Recommend value of&nbsp;</span><code>-9</code><span>&nbsp;if value is not available.&nbsp;</span>
-                    <div><em><a href="sticking-points.html#confidence" class="muted">How precisely is the line located? Read more about uncertainties...</a></em></div>
+                  <td>
+                    Quantitative certainty of the line's position.
+                     Specify the uncertainty in the precision of this line's location in <strong>meters</strong>.
+                     Recommend value of <code>-9</code> if value is not available.
+                    <div><em><a href="sticking-points.html#confidence" class="muted">
+                          How precisely is the line located?
+                           Read more about uncertainties...</a></em></div>
                   </td>
                 </tr>
                 <tr class="info">
                   <td>ExistenceConfidence</td>
                   <td><em>String</em></td>
-                  <td>Qualitative indication of the uncertainty of this line's existence. Suggested values include&nbsp;<code>certain</code>,&nbsp;<code>questionable</code>, or&nbsp;<code>unspecified</code>. Suggested default value of&nbsp;<code>certain</code>. Values must be defined in the&nbsp;<a href="#glossary">Glossary</a>&nbsp;table.
-                    <div><em><a href="sticking-points.html#confidence" class="muted">How confident are you that this contact or fault really exists? Read more about uncertainties...</a></em></div>
+                  <td>
+                    Qualitative indication of the uncertainty of this line's existence.
+                     Suggested values include <code>certain</code>, <code>questionable</code>, <code>unspecified</code>.
+                     Suggested default value of <code>certain</code>.
+                     Values must be defined in the <a href="#glossary">Glossary</a> table.
+                    <div><em><a href="sticking-points.html#confidence" class="muted">
+                          How confident are you that this
+                           contact or fault really exists? Read more about uncertainties...</a></em></div>
                   </td>
                 </tr>
                 <tr class="info">
                   <td>IdentityConfidence</td>
                   <td><em>String</em></td>
-                  <td>Qualitative indication of the uncertainty of this line's classification. Suggested values include&nbsp;<code>certain</code><span>,&nbsp;</span><code>questionable</code><span>, or&nbsp;</span><code>unspecified</code><span>. Suggested default value of&nbsp;</span><code>certain</code><span>. Values must be defined in the&nbsp;</span><a href="#glossary">Glossary</a><span>&nbsp;table.</span>
-                    <div><em><a href="sticking-points.html#confidence" class="muted">How confident are you identified this feature correctly? Read more about uncertainties...</a></em></div>
+                  <td>
+                    Qualitative indication of the uncertainty of this line's classification.
+                     Suggested values include <code>certain</code>, <code>questionable</code>, or <code>unspecified</code>.
+                     Suggested default value of <code>certain</code>.
+                     Values must be defined in the <a href="#glossary">Glossary</a> table.
+                    <div><em><a href="sticking-points.html#confidence" class="muted">
+                          How confident are you identified this
+                           feature correctly? Read more about uncertainties...</a></em></div>
                   </td>
                 </tr>
                 <tr>
                   <td>Symbol</td>
                   <td><em>String</em></td>
-                  <td>A reference to a line symbol. This may be an identifier in an ESRI style file, or it may identify a symbol in some other fashion. See the&nbsp;<a href="./symbolization.html">Symbolization</a><span>&nbsp;page for more information.</span></td>
+                  <td>
+                    A reference to a line symbol.
+                     This may be an identifier in an ESRI style file, or it may identify a symbol in some other
+                     fashion. See the <a href="./symbolization.html">Symbolization</a> page for more information.
+                  </td>
                 </tr>
                 <tr>
                   <td>Label</td>
@@ -184,7 +222,9 @@
                 <tr class="info">
                   <td>DataSourceID</td>
                   <td><em>String</em></td>
-                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for this line.</span>
+                  <td>
+                    The identifier for a record in the <a href="#datasources">DataSources</a> table that indicates
+                     the source for this line.
                     <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
                   </td>
                 </tr>
@@ -214,7 +254,9 @@
                 <tr class="info">
                   <td>DataSourceID</td>
                   <td><em>String</em></td>
-                  <td>The identifier for a record in the&nbsp;<a href="#datasources">DataSources</a><span>&nbsp;table that indicates the source for the data in this area.</span>
+                  <td>
+                    The identifier for a record in the <a href="#datasources">DataSources</a> table that indicates
+                     the source for the data in this area.
                     <div><em><a href="sticking-points.html#datasources" class="muted">Read more about feature-level metadata...</a></em></div>
                   </td>
                 </tr>
@@ -249,28 +291,48 @@
                 <tr class="info">
                   <td>MapUnit</td>
                   <td><em>String</em></td>
-                  <td>Short string that identifies a mapped unit. Examples include&nbsp;<code>Qal</code>,&nbsp;<code>Tec</code>, or&nbsp;<code>Qvt</code>. Each unit abbreviation must be unique in the database. Values in this field provide the link between this table and the MapUnitPolys table. Using special characters is not recommended in this field. Null values are acceptable, and are commonly associated with headings.
+                  <td>
+                    Short string that identifies a mapped unit. Examples include <code>Qal</code>, <code>Tec</code>,
+                     or <code>Qvt</code>.
+                     Each unit abbreviation must be unique in the database. Values in this field provide the link
+                     between this table and the MapUnitPolys table. Using special characters is not recommended
+                     in this field. Null values are acceptable, and are commonly associated with headings.
                     <div><em><a href="sticking-points.html#unitnames" class="muted">Read more about identifying mapped units...</a></em></div>
                   </td>
                 </tr>
                 <tr>
                   <td>Label</td>
                   <td><em>String</em></td>
-                  <td>A text string used label polygons when the map is displayed. May include markup to indicate special fonts, formatting, subscripts, etc. For example, Triassic Newark Formation might be labeled as&nbsp;<code>&lt;font=FGDCGeoAge&gt;#&lt;/font&gt;</code>. Null values are okay for units that do not appear on map or are not labeled, like headings, water, glacier, and perhaps overlay units.
+                  <td>
+                    A text string used label polygons when the map is displayed. May include markup to indicate
+                     special fonts, formatting, subscripts, etc. For example, Triassic Newark Formation might be
+                     labeled as <code>&lt;font=FGDCGeoAge&gt;#&lt;/font&gt;</code>.
+                     Null values are okay for units that do not appear on map or are not labeled, like headings,
+                     water, glacier, and perhaps overlay units.
                     <div><em><a href="sticking-points.html#unitnames" class="muted">Read more about identifying mapped units...</a></em></div>
                   </td>
                 </tr>
                 <tr>
                   <td>Name</td>
                   <td><em>String</em></td>
-                  <td>The name of the mapped unit. Two examples are&nbsp;<code>Chinle Formation</code>&nbsp;or&nbsp;<code>Shnabkaib Member</code>. These names should be verified in the U.S. Geologic Names Lexicon (GEOLEX). If your usage does not agree with GEOLEX's, notification should be submitted to the Lexicon website.
+                  <td>
+                    The name of the mapped unit.
+                     Two examples are <code>Chinle Formation</code> or <code>Shnabkaib Member</code>.
+                     These names should be verified in the U.S. Geologic Names Lexicon (GEOLEX). If your usage
+                     does not agree with GEOLEX's, <a href="#">notification should be submitted</a> to the
+                     Lexicon website.
                     <div><em><a href="sticking-points.html#unitnames" class="muted">Read more about identifying mapped units...</a></em></div>
                   </td>
                 </tr>
                 <tr>
                   <td>FullName</td>
                   <td><em>String</em></td>
-                  <td>Full name of unit, including identification of containing higher rank units. For example,&nbsp;<code>Shnabkaib Member of the Moenkopi Formation</code>. See lexicon-related note in 'Name', above. Null values are okay for headings or other geologic units that are not shown on map.</td>
+                  <td>
+                    Full name of unit, including identification of containing higher rank units.
+                     For example, <code>Shnabkaib Member of the Moenkopi Formation</code>.
+                     See lexicon-related note in 'Name', above. Null values are okay for headings or other
+                     geologic units that are not shown on map.
+                  </td>
                 </tr>
                 <tr>
                   <td>Age</td>
@@ -287,7 +349,11 @@
                 <tr>
                   <td>Description</td>
                   <td><em>String</em></td>
-                  <td>Free-form text description of a map unit. These descriptions are commonly structured according to long-standaing tradition and are terse. Markup for formattingis permitted. Null values are okay for headings or obvious mapped units (e.g.&nbsp;<code>water</code>).</td>
+                  <td>
+                    Free-form text description of a map unit. These descriptions are commonly structured according
+                     to long-standaing tradition and are terse. Markup for formattingis permitted. Null values
+                     are okay for headings or obvious mapped units (e.g. <code>water</code>).
+                  </td>
                 </tr>
                 <tr class="warning">
                   <td>HierarchyKey</td>
@@ -413,7 +479,7 @@
             <div class="page-header">
               <h1>6. Glossary</h1>
             </div>
-            <p class="lead">This table defines terminology used throughout the data set. Help other people understand what you meant.</p>
+            <p class="lead">This table defines terminology used throughout the data set. Help other people understand what you mean.</p>
             <blockquote>More discussion as needed</blockquote>
             <table class="table table-bordered">
               <thead>

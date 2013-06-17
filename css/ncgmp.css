@@ -7939,6 +7939,31 @@ body {
   background-image: -webkit-linear-gradient(bottom right, #30beff 0%, #006796 100%);
   background-image: linear-gradient(to top left, #30beff 0%, #006796 100%);
 }
+.featurette .featurette-image {
+  padding: 0;
+  margin: 0;
+  width: 1200px;
+  height: 400px;
+}
+.featurette .featurette-image.geomap {
+  background-image: url("../img/geomap1200.png");
+}
+.featurette .featurette-text {
+  position: absolute;
+  margin-top: 5%;
+  text-shadow: 1px 1px 0px white;
+}
+.featurette .featurette-text .btn-group {
+  margin-left: 20px;
+}
+.featurette .featurette-text.featurette-text-right {
+  left: 50%;
+  margin-right: 5%;
+}
+.featurette .featurette-text.featurette-text-left {
+  margin-right: 50%;
+  margin-left: 5%;
+}
 .footer {
   text-align: center;
   padding: 30px 0;
