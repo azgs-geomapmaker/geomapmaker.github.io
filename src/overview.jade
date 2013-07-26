@@ -1,0 +1,73 @@
+extends docs.jade
+
+block title
+    span Overview
+
+block lead
+    span Why should we standardize our geologic map data?
+
+block sidenavs
+    li: a(href="#introduction")
+        i.icon-chevron-right
+        span Introduction
+    li: a(href="#objectives")
+        i.icon-chevron-right
+        span Objectives
+    li: a(href="#lessons")
+        i.icon-chevron-right
+        span Lessons Learned
+    li: a(href="#design")
+        i.icon-chevron-right
+        span Design Considerations
+    li: a(href="#name")
+        i.icon-chevron-right
+        span Why the Name?
+
+block docs
+    section#introduction
+        .page-header
+            h1 1. Introduction
+        p.lead NCGMP09 is a database design for storing the information behind a traditional geologic map.
+        blockquote The database standard aspires to meet the needs and expectations of the entire geologic mapping community. In the years of work prior to defining NCGMP09, we learned that a single database design cannot suit all purposes. A database most suited to the needs of a field geologist will likely not address the content and cartographic requirements of publication, or lend itself to easy use by geologists and nongeologists alike. Basically, a database that attempts to do everything generally ends up doing nothing particularly well.
+        p.lead Instead of trying to satisfy every conceivable use, NCGMP09 focuses on the core content that is found on any geologic map, and encourages you to extend it to fit your specific needs.
+    section#objectives
+        .page-header
+            h1 2. Objectives
+        p.lead Geologic mappers, geologic mapping agencies, and geologic map users would benefit from a standard database design for digital representation of geologic maps.
+        blockquote The design is focused on the transfer and archiving of map data, with less emphasis on the creation of map data, the visual representation of map data, or the compilation of data from many maps. With increased use of this design we anticipate reductions in the cost of map production and publication.
+        p.lead Many of the subtleties of traditional, paper geologic maps are ambiguous and opaque to the non-expert public that needs (and pays for) the information contained within these maps. The NCGMP09 database standard aims to facilitate better understanding and wider use of geologic map data.
+    section#lessons
+        .page-header
+            h1 3. Lessons Learned
+        p.lead Geologists have been developing and using digital representations of geologic maps for more than two decades. In the course of this effort we have all learned some lessons:
+        h5.alert.alert-info The distinction between map data and its symbolization is important.
+        blockquote Map data are most usefully stored and analyzed in a geographic information system, with feature locations given in a real-world spatial reference framework and feature attributes stored explicitly in database tables. A map image, composed of lines, colored areas, patterns, and markers, is a symbolization of the data contained in the database, analogous to a tabular report based on financial data in an accounting database.
+        h5.alert.alert-info Maps need metadata for the overall dataset and for individual elements.
+        blockquote Geologists pioneering digital workflows for geologic map production led to the creation of a significant number of databases in which key fields were populated with symbols (for example, map unit = Ks) which were not defined within the database. This is obviously inadequate. Most geologic maps have mixed origins and data qualities; map users benefit from feature-level metadata that describes data source and quality. Map data should be closely linked to authorship because maps are interpretations made by individuals, workgroups, governmental agencies, or academic institutions.
+        h5.alert.alert-info Real-world database designs reflect compromises.
+        blockquote We must achieve a compromise between the intrinsic complexity of geologic map data, the needs of geologists and GIS practitioners who work with the design, the capabilities of GIS and database software, and the limitations of the underlying computer operating system and hardware.
+        h5.alert.alert-info It is difficult to obtain community acceptance for data architecture.
+        blockquote This is especially true when digital attribute names and vocabularies extend beyond the precedents set by our paper mapping tradition. This conservatism is a good thing because our paper map tradition embodies a great deal of hard-won wisdom. However, our traditions also reflect compromises necessitated by the limitations of the paper map format.
+    section#design
+        .page-header
+            h1 4. Design Considerations
+        p.lead The NCGMP09 database standard seeks to:
+        h5.alert.alert-info Focus on core map content
+        blockquote Define and encode the core data elements of a traditional, paper geologic map. Allow individual users to extend the standard to suit their specific needs.
+        h5.alert.alert-info Persist the data for a single geologic map
+        blockquote The intention of the database is to facilitate digital storage and transfer of a single geologic map. Extension to an "enterprise" system capable of containing the data behind multiple geologic maps is certainly possible, but is considered outside the scope of core functionality.
+        h5.alert.alert-info Provide a foundation for publication-quality visualization
+        blockquote The database standard aims to provide a backbone for interactive display and query of the data.
+        h5.alert.alert-info Use geologically meaningful attribute names and vocabularies
+        blockquote The names and types of all constituent elements are defined in order to meet user needs for consistency and to facilitate re-use of code and tools by map-producers. The names are chosen in order to have obvious meaning to geologists and GIS practitioners alike.
+        h5.alert.alert-info Make geologic maps more accessible
+        blockquote We need to address the perception that traditional geologic maps do not meet the public's need for consistently named and defined earth materials data. We can start by introducing standard terms and definitions to our data sets.
+        h5.alert.alert-info Introduce geologists to sound database design
+        blockquote NCGMP09 normalizes map data for the integrity and compactness of the database, but not to the extent that user comprehension is reduced.
+        h5.alert.alert-info Strive towards open file formats and open data
+        blockquote The original implementation of NCGMP09 was in a proprietary, ESRI geodatabase. This facilitates use by a large cross-section of the geologic mapping community, but also imposes severe limitations on the data's use. The concepts, data structures and models presented are not, however, tied in any way to proprietary formats. The principals outlined here can be used to generate an NCGMP09-compliant database in any system.
+    section#name
+        .page-header
+            h1 5. Why the Name?
+        p.lead ... because it stuck.
+        blockquote The database design was named NCGMP09 to reflect its initial target audience, but is not intended to only satisfy that audience. Basically, let this be a lesson to any of you seeking to put a name to your data model or system or software... whatever you start calling it will haunt you forever.

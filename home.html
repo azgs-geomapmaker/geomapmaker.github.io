@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/ncgmp.css">
+  </head>
+  <body data-spy="scroll" data-target=".ncgmp-docs-sidebar">
+    <!-- Navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div id="top-nav" class="navbar-inner">
+        <div class="container"></div>
+        <!-- Collapsed menu-->
+        <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li><a href="./core-content.html">Core Content</a></li>
+            <li><a href="./extensibility.html">Extensibility</a></li>
+            <li><a href="./symbolization.html">Symbolization</a></li>
+            <li><a href="./tools.html">Tools</a></li>
+            <li><a href="./sticking-points.html">Sticking Points</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Sub-Header-->
+    <header class="jumbotron masthead">
+      <div class="container">
+        <h1>NCGMP09</h1>
+        <p>A database standard for geologic maps</p><a href="http://ngmdb.usgs.gov/Info/standards/NCGMP09/docs/NCGMP09_v1-1__2-25-11.zip" class="btn btn-primary">Download the Official Package</a>
+        <div class="muted">Version 1.1</div>
+      </div>
+    </header>
+    <div class="row-fluid">
+      <div class="featurette"><i class="geomap featurette-image pull-left"></i>
+        <div class="featurette-text featurette-text-right">
+          <h2 class="featurette-heading">Modern Geologic Maps<span class="muted"> require modern mapping methods.</span></h2>
+          <p class="lead">
+            Printed, paper maps have a place, but that place is in the field and on walls. Today, information
+             is generated, manipulated and managed digitally.
+          </p>
+          <p class="lead pull-right"><a href="overview.html">Build a modern mapping workflow.</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="featurette"><i class="featurette-image pull-right"></i>
+        <div class="featurette-text featurette-text-left">
+          <h2 class="featurette-heading">Interoperability Matters<span class="muted"> to both the mappers and the users.</span></h2>
+          <p class="lead">
+            Differences in cartography and data structures across mapping agencies is baffling not only to
+             the public but to other geologists as well.
+          </p>
+          <p class="lead pull-right"><a href="core-content.html">Help people use your maps.</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="featurette"><i class="rock-hammer featurette-image pull-left"></i>
+        <div class="featurette-text featurette-text-right">
+          <h2 class="featurette-heading">Share Tools<span class="muted"> and make everyone's life easier.</span></h2>
+          <p class="lead">
+            The devil is always in the details, but in general <em>we all do a whole lot of the same thing</em>.
+             As a community, we could stand to stop re-inventing the wheel at every chance we get.
+          </p>
+          <p class="lead pull-right"><a href="tools.html">A framework for developers to work with.</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="featurette"><i class="featurette-image pull-right"></i>
+        <div class="featurette-text featurette-text-left">
+          <h2 class="featurette-heading">Get Started<span class="muted"> by downloading and populating a database.</span></h2>
+          <p class="lead">
+            We all use different software to make our maps, and different software to view them. The standard
+             defines the <em>content</em> of our data, not the file format we choose to store it in. Download
+             a blank database and give it a try:
+          </p>
+          <div class="btn-group"><a href="#" class="btn">ESRI File Geodatabase</a><a href="#" class="btn">Shapefile</a><a href="#" class="btn">PostGIS SQL Script</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="container">
+        <p>Database designed by the USGS National Cooperative Geologic Mapping Program.</p>
+        <p>Site designed by&nbsp;<a href="mailto:ryan.clark.j@gmail.com">Ryan Clark</a><span>, drawing heavily on content from&nbsp;</span><a href="http://pubs.usgs.gov/of/2010/1335">USGS Open-File Report 2010-1335</a><span></span></p>
+        <p>Not sure if I could rely any more heavily on&nbsp;<a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a><span>!!&nbsp;</span><a href="http://glyphicons.com">Glyphicons Free</a><span>&nbsp;licensed under&nbsp;</span><a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><span></span></p>
+      </div>
+    </footer>
+    <!-- Scripts-->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="components/bootstrap/js/bootstrap-affix.js"></script>
+    <script>
+      $('.ncgmp-docs-sidenav').affix({
+          offset: {
+            top: 190, bottom: 10
+          }
+      });
+    </script>
+  </body>
+</html>

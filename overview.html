@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="css/ncgmp.css">
+  </head>
+  <body data-spy="scroll" data-target=".ncgmp-docs-sidebar">
+    <!-- Navbar-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div id="top-nav" class="navbar-inner">
+        <div class="container"></div>
+        <!-- Collapsed menu-->
+        <button type="button" data-toggle="collapse" data-target=".nav-collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./overview.html">Overview</a></li>
+            <li><a href="./core-content.html">Core Content</a></li>
+            <li><a href="./extensibility.html">Extensibility</a></li>
+            <li><a href="./symbolization.html">Symbolization</a></li>
+            <li><a href="./tools.html">Tools</a></li>
+            <li><a href="./sticking-points.html">Sticking Points</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Sub-Header-->
+    <header class="jumbotron subhead">
+      <div class="container">
+        <h1><span>Overview</span></h1>
+        <p class="lead"><span>Why should we standardize our geologic map data?</span></p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <!-- Sidebar-->
+        <div class="span3">
+          <div class="ncgmp-docs-sidebar">
+            <ul class="nav nav-tabs nav-stacked ncgmp-docs-sidenav">
+              <li><a href="#introduction"><i class="icon-chevron-right"></i><span>Introduction</span></a></li>
+              <li><a href="#objectives"><i class="icon-chevron-right"></i><span>Objectives</span></a></li>
+              <li><a href="#lessons"><i class="icon-chevron-right"></i><span>Lessons Learned</span></a></li>
+              <li><a href="#design"><i class="icon-chevron-right"></i><span>Design Considerations</span></a></li>
+              <li><a href="#name"><i class="icon-chevron-right"></i><span>Why the Name?</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- Main-->
+        <div class="span9">
+          <section id="introduction">
+            <div class="page-header">
+              <h1>1. Introduction</h1>
+            </div>
+            <p class="lead">NCGMP09 is a database design for storing the information behind a traditional geologic map.</p>
+            <blockquote>The database standard aspires to meet the needs and expectations of the entire geologic mapping community. In the years of work prior to defining NCGMP09, we learned that a single database design cannot suit all purposes. A database most suited to the needs of a field geologist will likely not address the content and cartographic requirements of publication, or lend itself to easy use by geologists and nongeologists alike. Basically, a database that attempts to do everything generally ends up doing nothing particularly well.</blockquote>
+            <p class="lead">Instead of trying to satisfy every conceivable use, NCGMP09 focuses on the core content that is found on any geologic map, and encourages you to extend it to fit your specific needs.</p>
+          </section>
+          <section id="objectives">
+            <div class="page-header">
+              <h1>2. Objectives</h1>
+            </div>
+            <p class="lead">Geologic mappers, geologic mapping agencies, and geologic map users would benefit from a standard database design for digital representation of geologic maps.</p>
+            <blockquote>The design is focused on the transfer and archiving of map data, with less emphasis on the creation of map data, the visual representation of map data, or the compilation of data from many maps. With increased use of this design we anticipate reductions in the cost of map production and publication.</blockquote>
+            <p class="lead">Many of the subtleties of traditional, paper geologic maps are ambiguous and opaque to the non-expert public that needs (and pays for) the information contained within these maps. The NCGMP09 database standard aims to facilitate better understanding and wider use of geologic map data.</p>
+          </section>
+          <section id="lessons">
+            <div class="page-header">
+              <h1>3. Lessons Learned</h1>
+            </div>
+            <p class="lead">Geologists have been developing and using digital representations of geologic maps for more than two decades. In the course of this effort we have all learned some lessons:</p>
+            <h5 class="alert alert-info">The distinction between map data and its symbolization is important.</h5>
+            <blockquote>Map data are most usefully stored and analyzed in a geographic information system, with feature locations given in a real-world spatial reference framework and feature attributes stored explicitly in database tables. A map image, composed of lines, colored areas, patterns, and markers, is a symbolization of the data contained in the database, analogous to a tabular report based on financial data in an accounting database.</blockquote>
+            <h5 class="alert alert-info">Maps need metadata for the overall dataset and for individual elements.</h5>
+            <blockquote>Geologists pioneering digital workflows for geologic map production led to the creation of a significant number of databases in which key fields were populated with symbols (for example, map unit = Ks) which were not defined within the database. This is obviously inadequate. Most geologic maps have mixed origins and data qualities; map users benefit from feature-level metadata that describes data source and quality. Map data should be closely linked to authorship because maps are interpretations made by individuals, workgroups, governmental agencies, or academic institutions.</blockquote>
+            <h5 class="alert alert-info">Real-world database designs reflect compromises.</h5>
+            <blockquote>We must achieve a compromise between the intrinsic complexity of geologic map data, the needs of geologists and GIS practitioners who work with the design, the capabilities of GIS and database software, and the limitations of the underlying computer operating system and hardware.</blockquote>
+            <h5 class="alert alert-info">It is difficult to obtain community acceptance for data architecture.</h5>
+            <blockquote>This is especially true when digital attribute names and vocabularies extend beyond the precedents set by our paper mapping tradition. This conservatism is a good thing because our paper map tradition embodies a great deal of hard-won wisdom. However, our traditions also reflect compromises necessitated by the limitations of the paper map format.</blockquote>
+          </section>
+          <section id="design">
+            <div class="page-header">
+              <h1>4. Design Considerations</h1>
+            </div>
+            <p class="lead">The NCGMP09 database standard seeks to:</p>
+            <h5 class="alert alert-info">Focus on core map content</h5>
+            <blockquote>Define and encode the core data elements of a traditional, paper geologic map. Allow individual users to extend the standard to suit their specific needs.</blockquote>
+            <h5 class="alert alert-info">Persist the data for a single geologic map</h5>
+            <blockquote>The intention of the database is to facilitate digital storage and transfer of a single geologic map. Extension to an "enterprise" system capable of containing the data behind multiple geologic maps is certainly possible, but is considered outside the scope of core functionality.</blockquote>
+            <h5 class="alert alert-info">Provide a foundation for publication-quality visualization</h5>
+            <blockquote>The database standard aims to provide a backbone for interactive display and query of the data.</blockquote>
+            <h5 class="alert alert-info">Use geologically meaningful attribute names and vocabularies</h5>
+            <blockquote>The names and types of all constituent elements are defined in order to meet user needs for consistency and to facilitate re-use of code and tools by map-producers. The names are chosen in order to have obvious meaning to geologists and GIS practitioners alike.</blockquote>
+            <h5 class="alert alert-info">Make geologic maps more accessible</h5>
+            <blockquote>We need to address the perception that traditional geologic maps do not meet the public's need for consistently named and defined earth materials data. We can start by introducing standard terms and definitions to our data sets.</blockquote>
+            <h5 class="alert alert-info">Introduce geologists to sound database design</h5>
+            <blockquote>NCGMP09 normalizes map data for the integrity and compactness of the database, but not to the extent that user comprehension is reduced.</blockquote>
+            <h5 class="alert alert-info">Strive towards open file formats and open data</h5>
+            <blockquote>The original implementation of NCGMP09 was in a proprietary, ESRI geodatabase. This facilitates use by a large cross-section of the geologic mapping community, but also imposes severe limitations on the data's use. The concepts, data structures and models presented are not, however, tied in any way to proprietary formats. The principals outlined here can be used to generate an NCGMP09-compliant database in any system.</blockquote>
+          </section>
+          <section id="name">
+            <div class="page-header">
+              <h1>5. Why the Name?</h1>
+            </div>
+            <p class="lead">... because it stuck.</p>
+            <blockquote>The database design was named NCGMP09 to reflect its initial target audience, but is not intended to only satisfy that audience. Basically, let this be a lesson to any of you seeking to put a name to your data model or system or software... whatever you start calling it will haunt you forever.</blockquote>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- Footer-->
+    <footer class="footer">
+      <div class="container">
+        <p>Database designed by the USGS National Cooperative Geologic Mapping Program.</p>
+        <p>Site designed by&nbsp;<a href="mailto:ryan.clark.j@gmail.com">Ryan Clark</a><span>, drawing heavily on content from&nbsp;</span><a href="http://pubs.usgs.gov/of/2010/1335">USGS Open-File Report 2010-1335</a><span></span></p>
+        <p>Not sure if I could rely any more heavily on&nbsp;<a href="http://twitter.github.io/bootstrap/index.html">Bootstrap</a><span>!!&nbsp;</span><a href="http://glyphicons.com">Glyphicons Free</a><span>&nbsp;licensed under&nbsp;</span><a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a><span></span></p>
+      </div>
+    </footer>
+    <!-- Scripts-->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="components/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="components/bootstrap/js/bootstrap-affix.js"></script>
+    <script>
+      $('.ncgmp-docs-sidenav').affix({
+          offset: {
+            top: 190, bottom: 10
+          }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+extends index.jade
+
+block content
+    // Sub-Header
+    header.jumbotron.subhead
+        .container
+            h1
+                block title
+            p.lead
+                block lead
+
+    .container
+        .row
+            // Sidebar
+            .span3
+                .ncgmp-docs-sidebar
+                    ul.nav.nav-tabs.nav-stacked.ncgmp-docs-sidenav
+                        block sidenavs
+
+            // Main
+            .span9
+                block docs
