@@ -1,54 +1,50 @@
-!!!html
-html(lang="en")
-    head
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        link(rel="stylesheet", media="screen", href="css/ncgmp.css")
-    body(data-spy="scroll", data-target=".ncgmp-docs-sidebar")
-        // Navbar
-        .navbar.navbar-inverse.navbar-fixed-top
-            #top-nav.navbar-inner
-                .container
-                // Collapsed menu
-                button(type="button", data-toggle="collapse", data-target=".nav-collapse").btn.btn-navbar
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                .nav-collapse.collapse
-                    ul.nav
-                        li: a(href="./home.html") Home
-                        li: a(href="./overview.html") Overview
-                        li: a(href="./core-content.html") Core Content
-                        li: a(href="./extensibility.html") Extensibility
-                        li: a(href="./symbolization.html") Symbolization
-                        li: a(href="./tools.html") Tools
-                        li: a(href="./sticking-points.html") Sticking Points
-        block content
+extends base.jade
 
-        // Footer
-        footer.footer
-            .container
-                p Database designed by the USGS National Cooperative Geologic Mapping Program.
-                p Site designed by&nbsp;
-                    a(href="mailto:ryan.clark.j@gmail.com") Ryan Clark
-                    span , drawing heavily on content from&nbsp;
-                    a(href="http://pubs.usgs.gov/of/2010/1335") USGS Open-File Report 2010-1335
-                    span .
-                p Not sure if I could rely any more heavily on&nbsp;
-                    a(href="http://twitter.github.io/bootstrap/index.html") Bootstrap
-                    span !!&nbsp;
-                    a(href="http://glyphicons.com") Glyphicons Free
-                    span &nbsp;licensed under&nbsp;
-                    a(href="http://creativecommons.org/licenses/by/3.0/") CC BY 3.0
-                    span .
-
-        // Scripts
-        script(src="components/jquery/jquery.min.js")
-        script(src="components/bootstrap/js/bootstrap-scrollspy.js")
-        script(src="components/bootstrap/js/bootstrap-collapse.js")
-        script(src="components/bootstrap/js/bootstrap-affix.js")
-        script
-            $('.ncgmp-docs-sidenav').affix({
-                offset: {
-                  top: 190, bottom: 10
-                }
-              });
+block content
+    // Sub-Header
+    header.jumbotron.masthead
+        .container
+            h1 NCGMP09
+            p A database standard for geologic maps
+            a(href="http://ngmdb.usgs.gov/Info/standards/NCGMP09/docs/NCGMP09_v1-1__2-25-11.zip").btn.btn-primary Download the Official Package
+            .muted Version 1.1
+    .row-fluid
+        .featurette
+            i.geomap.featurette-image.pull-left
+            .featurette-text.featurette-text-right
+                h2.featurette-heading Modern Geologic Maps
+                    span.muted  require modern mapping methods.
+                p.lead Printed, paper maps have a place, but that place is in the field and on walls. Today, information
+                    |  is generated, manipulated and managed digitally.
+                p.lead.pull-right: a(href="overview.html") Build a modern mapping workflow.
+    .row-fluid
+        .featurette
+            i.featurette-image.pull-right
+            .featurette-text.featurette-text-left
+                h2.featurette-heading Interoperability Matters
+                    span.muted  to both the mappers and the users.
+                p.lead Differences in cartography and data structures across mapping agencies is baffling not only to
+                    |  the public but to other geologists as well.
+                p.lead.pull-right: a(href="core-content.html") Help people use your maps.
+    .row-fluid
+        .featurette
+            i.rock-hammer.featurette-image.pull-left
+            .featurette-text.featurette-text-right
+                h2.featurette-heading Share Tools
+                    span.muted  and make everyone's life easier.
+                p.lead The devil is always in the details, but in general <em>we all do a whole lot of the same thing</em>.
+                    |  As a community, we could stand to stop re-inventing the wheel at every chance we get.
+                p.lead.pull-right: a(href="tools.html") A framework for developers to work with.
+    .row-fluid
+        .featurette
+            i.featurette-image.pull-right
+            .featurette-text.featurette-text-left
+                h2.featurette-heading Get Started
+                    span.muted  by downloading and populating a database.
+                p.lead We all use different software to make our maps, and different software to view them. The standard
+                    |  defines the <em>content</em> of our data, not the file format we choose to store it in. Download
+                    |  a blank database and give it a try:
+                .btn-group
+                    a(href="#").btn ESRI File Geodatabase
+                    a(href="#").btn Shapefile
+                    a(href="#").btn PostGIS SQL Script
