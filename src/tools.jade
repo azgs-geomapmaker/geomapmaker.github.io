@@ -10,7 +10,9 @@ block sidenavs
     li: a(href="#github")
         i.icon-chevron-right
         span Git Repositories
-
+    li: a(href="#ideas")
+        i.icon-chevron-right
+        span Tool Ideas
 block docs
     section#github
         .page-header
@@ -19,3 +21,18 @@ block docs
           | and collaborate on the development of new tools.
         blockquote If you have tools you'd be interested in hosting on Github, get in touch with
           | <a href="mailto:ryan.clark@azgs.az.gov">Ryan Clark</a> and he'll get you started.
+    section#ideas
+        .page-header
+            h1 2. Incoming Tools
+        p.lead We all need better tools. What ideas are on the burner?
+        ul
+            li
+                div: strong A Formal Metadata Generator
+                div: p There is all kinds of metadata in the database itself, but some of us are required to produce metadata according to a particular specification. Examples we're familiar with are FGDC (as HTML, XML, or just plain text), ISO19139, Dublin Core, etc. The trick will be determining which are useful, and how much content we can generate from the NCGMP09 tables.
+            li
+                div: strong Post-populate the Glossary
+                div: p Geologists don't often think it neccessary for them to define "accepted" terms such as <code>contact</code> or <code>normal fault</code>. However what is clear to one person can often be unclear to another, and so we strive to get the <a href="core-content.html#glossary">Glossary table</a> fully populated. This could lead to repetitive data-entry for commonly used terms. One idea is to build a tool that runs <em>after</em> you populate the geographic data. The tool would identify <a href="sticking-points.html#definingterms">all the terms used in the database that NCGMP09 requires be defined</a> in the <a href="core-content.html#glossary">Glossary table</a>. For commonly-used terms, it might suggest definitions for you.
+                div: em: a.muted(href="sticking-points.html#definingterms") Read more about defining terms...
+            li
+                div: strong Web-service-based Validation
+                div: p We could benefit from defining the rules that a database must conform to in order to validate in a single location. Ideally this information would be structured in a way that a computer program could process it. Imagine a structured text document that defines which fields have to exist, which fields can be empty, etc. A desktop application could always look to that service for the most up-to-date, agreed-upon version of what it means to be valid, and then perform the validation on local databases.

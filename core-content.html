@@ -480,7 +480,35 @@
               <h1>6. Glossary</h1>
             </div>
             <p class="lead">This table defines terminology used throughout the data set. Help other people understand what you mean.</p>
-            <blockquote>More discussion as needed</blockquote>
+            <blockquote>There are a number of fields that contain words or phrases that <strong>must be defined</strong> in the Glossary table:</blockquote>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>In this table...</th>
+                  <th>define terms from these fields</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th> <a href="#mapunitpolys">MapUnitPolys</a></th>
+                  <td><code>IdentityConfidence</code></td>
+                </tr>
+                <tr>
+                  <th> <a href="#contactsandfaults">ContactsAndFaults</a></th>
+                  <td><code>Type</code>  <code>ExistenceConfidence</code>  <code>IdentityConfidence</code></td>
+                </tr>
+                <tr>
+                  <th><a href="#descriptionofmapunits">DescriptionOfMapUnits</a></th>
+                  <td><code>ParagraphStyle</code></td>
+                </tr>
+                <tr>
+                  <th><a href="extensibility.html">Any additional tables</a></th>
+                  <td>any fields that convey a <code>type</code> or a <code>confidence</code> in words.</td>
+                </tr>
+              </tbody>
+            </table>
+            <blockquote>Furthermore, its okay to put in more than you need. It just fine to include terms in the Glossary that are not found in one of these fields, or even not found in the entire database. This means you could feasibly build a Glossary table once, and then keep expanding and reusing it in all of your future NCGMP09 databases.</blockquote>
+            <blockquote><span>There has been some discussion about how to utilize terminology from other, perhaps already existing, vocabularies in order to define terms. </span><em><a href="sticking-points.html#definingterms" class="muted">Read more on this topic...</a></em></blockquote>
             <table class="table table-bordered">
               <thead>
                 <tr>

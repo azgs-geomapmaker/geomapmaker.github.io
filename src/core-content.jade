@@ -330,7 +330,33 @@ block docs
         .page-header
             h1 6. Glossary
         p.lead This table defines terminology used throughout the data set. Help other people understand what you mean.
-        blockquote More discussion as needed
+        blockquote There are a number of fields that contain words or phrases that <strong>must be defined</strong> in the Glossary table:
+        table.table
+            thead
+                tr
+                    th In this table...
+                    th define terms from these fields
+            tbody
+                tr
+                    th 
+                        a(href="#mapunitpolys") MapUnitPolys
+                    td <code>IdentityConfidence</code>
+                tr
+                    th 
+                        a(href="#contactsandfaults") ContactsAndFaults
+                    td <code>Type</code>  <code>ExistenceConfidence</code>  <code>IdentityConfidence</code>
+                tr
+                    th
+                        a(href="#descriptionofmapunits") DescriptionOfMapUnits
+                    td <code>ParagraphStyle</code>
+                tr
+                    th
+                        a(href="extensibility.html") Any additional tables
+                    td any fields that convey a <code>type</code> or a <code>confidence</code> in words.
+        blockquote Furthermore, its okay to put in more than you need. It just fine to include terms in the Glossary that are not found in one of these fields, or even not found in the entire database. This means you could feasibly build a Glossary table once, and then keep expanding and reusing it in all of your future NCGMP09 databases.
+        blockquote
+            span There has been some discussion about how to utilize terminology from other, perhaps already existing, vocabularies in order to define terms. 
+            em: a.muted(href="sticking-points.html#definingterms") Read more on this topic...
         table.table.table-bordered
             thead
                 tr
